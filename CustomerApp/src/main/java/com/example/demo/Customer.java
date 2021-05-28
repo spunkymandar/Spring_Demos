@@ -13,7 +13,7 @@ public class Customer {
 	Integer customerId;
 	
 	String customerName;
-	String customerAddress;
+	public String customerAddress;
 	public Integer getCustomerId() {
 		return customerId;
 	}

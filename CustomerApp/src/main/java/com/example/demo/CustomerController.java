@@ -10,17 +10,23 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class CustomerController {
+	
 	@Autowired
 	CustomerRepository customerRepository;
-
-	@GetMapping(value = "/customers")
+	
+	@GetMapping(value="/customers")
 	public List<Customer> getAllCustomers() {
 		return customerRepository.findAll();
 	}
-
-	@GetMapping(value = "/custoemrs/{id}")
-	public Optional<Customer> getCustomer(@PathVariable int id) {
-		Optional<Customer> customer = customerRepository.findById(id);
+	
+	@GetMapping(value="/customers/{id}")
+	public Optional<Customer> getCustomer(@PathVariable int id) throws StudentNotFoundException {
+		Optional<Customer> customer=customerRepository.findById(id);
+		if(!customer.isPresent())
+		{
+			throw new StudentNotFoundException("id :"+id);
+		}
 		return customer;
 	}
+	
 }

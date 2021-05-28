@@ -47,7 +47,7 @@ public class CustomerAppApplication implements CommandLineRunner{
 		
 		
 	//	Customer mycust=customerRepository.findBycustomerAddress("Mumbai");
-		Customer mycust=customerRepository.findBycustomerAddress();
+		Customer mycust=customerRepository.findBycustomerAddress("Pune");
 		
 		System.out.println(mycust);
 		
